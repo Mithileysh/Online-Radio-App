@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html
+ lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <style id="bg-image" type="text/css"></style>
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="dummy-bg"></div>
+    </div>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <!-- Station Names -->
+                <li class="sidebar-brand">
+                    <a>
+                       City
+                    </a>
+                </li>
+                <span class="city">
+                    
+                </span>                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="container-fluid space-top">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <!-- <h1>Stations</h1> -->
+                        <ul class="stations">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <div class="hide">
+        <video controls="true" autoplay="true" name="media" id="audio-src"></video>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar-fixed-bottom">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="station-site" target="_blank"><h3 class="station-name">Station Name</h3></a>
+                    </li>
+                    <li>
+                        <a class="volume-ctrl pause"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/radio.js"></script>
+
+</body>
+
+</html>
