@@ -1,7 +1,7 @@
 $(document).ready(function() {
     'use strict';
 
-    var liveRadioListUrl = "https://gist.githubusercontent.com/valarpirai/473305f09f8433f1d338634ed42c437d/raw/4b7fa7c76239489dded85606e174d08aef2a0b87/live-radio.json";
+    var liveRadioListUrl = "https://raw.githubusercontent.com/Mithileysh/Online-Radio-App/master/live-radio.json";
 
     var stationList = {};
     var selectedStationList = [];
