@@ -1,0 +1,70 @@
+Code to get Radio URL from radio.garden
+Update live.json URL while running this code.
+Open chrome debug console and paste the following code
+Change the Country Name list and City List. Only the selected city stations will be listed:
+
+
+var livejson = "https://cdn2.radio.garden/live.json?b=b7679e1d0bd7f726d09f-11-3&noOutdatedSC=1";
+
+var createScriptTag = function(url, callback) {
+if (!callback) callback = function() {};
+var addScript = document.createElement('script');
+     addScript.type = "text/javascript";
+     addScript.onload = callback;
+     addScript.src = url;
+     document.head.appendChild(addScript);
+};
+
+var jqueryJS = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"
+createScriptTag(jqueryJS, function() {
+    console.log("Script tag created");
+    // Live radio JSON
+    $.ajax({
+        url: livejson,
+        cache: false,
+        success: function (html_str) {
+            console.log("Received response");
+            resp = html_str;
+            printChannels(html_str)
+        }
+    });
+})
+
+function printChannels(resp) {
+    var country = ["India", "Sri Lanka"]
+    var countryCode = []
+    for (i in resp.countries) {
+        if (country.indexOf(resp.countries[i]) != -1) {
+            countryCode.push(parseInt(i))
+        }
+    }
+
+    var cities = []
+    for (i in resp.places) {
+        x = resp.places[i];
+        if (countryCode.indexOf(x.countryIndex) != -1) { // 191 - sri lanka, 92 - india
+            // console.log(x)
+            cities.push(x);
+        }
+    }
+    // console.log(cities);
+    var city = ["Colombo", "Chennai"]
+
+    var channels = [];
+
+    for (var i in cities) {
+        if (city.indexOf(cities[i].name) != -1) {
+            console.log(cities[i].name)
+            // console.log(true)
+            var l_obj = { "name": cities[i].name, channels: [] };
+            var l_cha = cities[i].channels;
+
+            for (var j in l_cha) {
+                l_obj.channels.push(resp.channels[l_cha[j]])
+            }
+            channels.push(l_obj);
+        }
+    }
+    console.log('%c Result', 'background: #222; color: #bada55');
+    console.log(JSON.stringify(channels))
+}
